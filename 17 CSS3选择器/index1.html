@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>CSS3伪类选择器</title>
+		<style type="text/css">
+			/* 
+			 2，伪类选择器
+			     =========================================================
+			     1>:first-child  -->单独指定第一个元素的样式
+			 	 2>:last-child   -->单独指定最后一个元素的样式
+			 	 3>:nth-child(num)    -->指定序号的子元素使用样式
+			 	 4>:nth-last-child(num)   -->指定倒数序号的子元素使用样式
+				 =======================================================先定位置，在选类型
+				 5>:nth-child(odd)  -->指定的正数下来的奇数子元素使用样式
+				 6>:nth-child(even) -->指定的正数下来的偶数子元素使用样式
+				 7>:nth-last-child(odd)  -->指定的倒数下来的奇数子元素使用样式
+				 8>:nth-last-child(even) -->指定的倒数下来的偶数子元素使用样式
+				 ========================================================先选类型，在定位置，给同一类的元素编号
+				 9>:nth-of-type(odd)   -->指定的正数下来的奇数子元素使用样式
+				 10>:nth-of-type(even)  -->指定的正数下来的偶数子元素使用样式
+				 11>:nth-of-last-type(odd) -->指定的倒数下来的奇数子元素使用样式
+				 12>:nth-of-last-type(even) -->指定的倒数下来的偶数子元素使用样式
+				 ==============================================================循环样式
+				 13>:nth-child(An+B) -->A  为隔着A个序数为一个循环   B为操纵在这个循环中位于哪个位置
+				 =================================================================
+				 14>:only-child  -->只有一个元素的时候使用，添加样式
+			 3，目标伪类选择器
+			    ：target :突出显示活动的HTML锚  (与锚点结合使用)
+			 */
+			.nav1 li:first-child{
+				background-color:green;
+			}
+			.nav1 li:last-child{
+				background-color:red;
+			}
+			.nav1 li:nth-child(2){
+				background-color:yellow;
+			}
+			.nav1 li:nth-last-child(2){
+				background-color:saddlebrown;
+			}
+			.nav2 li:nth-child(odd){
+				background-color:red;
+			}
+			.nav2 li:nth-child(even){
+				background-color:blue;
+			}
+			.nav3 li:nth-last-child(odd){
+				background-color:red;
+			}
+			.nav3 li:nth-last-child(even){
+				background-color:blue;
+			}
+			.nav4 li:nth-child(2n+1){
+				background-color:red;
+			}
+			:target{
+				background-color:yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<a href="#text1">1</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+		<a href="#text2">2</a>
+		<div id="text1">
+			<h1>文本1</h1>
+			<p>内容显示区域</p>
+		</div>
+		<div id="text2">
+			<h1>文本2</h1>
+			<p>内容显示区域</p>
+		</div>
+		<h1>列表A</h1>
+		<ul class="nav1">
+			<li>这里是列表1</li>
+			<li>这里是列表2</li>
+			<li>这里是列表3</li>
+			<li>这里是列表4</li>
+			<li>这里是列表5</li>
+			<li>这里是列表6</li>
+			<li>这里是列表7</li>
+			<li>这里是列表8</li>
+			<li>这里是列表9</li>
+			<li>这里是列表10</li>
+		</ul>
+		<h1>列表B</h1>
+		<ul class="nav2">
+			<li>这里是列表1</li>
+			<li>这里是列表2</li>
+			<li>这里是列表3</li>
+			<li>这里是列表4</li>
+			<li>这里是列表5</li>
+			<li>这里是列表6</li>
+			<li>这里是列表7</li>
+			<li>这里是列表8</li>
+			<li>这里是列表9</li>
+			<li>这里是列表10</li>
+		</ul>
+		<h1>列表C</h1>
+		<ul class="nav3">
+			<li>这里是列表1</li>
+			<li>这里是列表2</li>
+			<li>这里是列表3</li>
+			<li>这里是列表4</li>
+			<li>这里是列表5</li>
+			<li>这里是列表6</li>
+			<li>这里是列表7</li>
+			<li>这里是列表8</li>
+			<li>这里是列表9</li>
+			<li>这里是列表10</li>
+		</ul>
+		<h1>列表D</h1>
+		<ul class="nav4">
+			<li>这里是列表1</li>
+			<li>这里是列表2</li>
+			<li>这里是列表3</li>
+			<li>这里是列表4</li>
+			<li>这里是列表5</li>
+			<li>这里是列表6</li>
+			<li>这里是列表7</li>
+			<li>这里是列表8</li>
+			<li>这里是列表9</li>
+			<li>这里是列表10</li>
+		</ul>
+	</body>
+</html>

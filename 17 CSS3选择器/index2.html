@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>CSS3层级选择器</title>
+		<style type="text/css">
+			/*
+			 1,包含选择器：    E F{...}（后代选择器）h3 span{...}  -->所有后代
+			 2,层级选择器：    E>F{...}(子选择器)  h3>span{...}   -->只有子代
+			 3,相邻兄弟选择器： E+F{...}   h3+span{...}
+			 -->E F 具有一个相同的父元素，F在E后面，并且相邻
+			 4,通用兄弟选择器：E~F{...}  h3~span{...}
+			 
+			【注】，几种常用前缀：(解决CSS3属性兼容性问题)
+			     1,-webkit-
+				 2,-moz-
+				 3,-ms-
+				 4,-o-
+			 */
+			h3 span{
+				background-color:red;
+			}
+			h2>span{
+				background-color:green;
+			}
+			.nav1 .ow+li{  /* 给 ow 后面的 li 添加样式*/
+				background-color:red;
+			}
+			.nav2 .of~li{
+				background-color:blue;
+			}
+		</style>
+	</head>
+	<body>
+		<h3><span>对方对方的</span>我可是打开方式发的考<p>士大夫<span>打发打发</span>士大夫但是</p>多少分开始开发副都看不见卡佛ii改变独立开发不少地方地方看看电视。</h3>
+		<div style="width:100%;height:200px;"></div>
+		<h2><span>对方对方的</span>我可是打开方式发的考<p>士大夫<span>打发打发</span>士大夫但是</p>多少分开始开发副都看不见卡佛ii改变独立开发不少地方地方看看电视。</h2>
+        <h1>列表A</h1>
+        <ul class="nav1">
+        	<li class="ow">这里是列表1</li>
+        	<li>这里是列表2</li>
+        	<li class="ow">这里是列表3</li>
+        	<li>这里是列表4</li>
+        	<li class="ow">这里是列表5</li>
+        	<li>这里是列表6</li>
+        	<li class="ow">这里是列表7</li>
+        	<li>这里是列表8</li>
+        	<li class="ow">这里是列表9</li>
+        	<li>这里是列表10</li>
+        </ul>	
+		<h1>列表B</h1>
+		<ul class="nav2">
+			<li class="of">这里是列表1</li>
+			<li>这里是列表2</li>
+			<li>这里是列表3</li>
+			<li>这里是列表4</li>
+			<li>这里是列表5</li>
+			<li>这里是列表6</li>
+			<li>这里是列表7</li>
+			<li>这里是列表8</li>
+			<li>这里是列表9</li>
+			<li>这里是列表10</li>
+		</ul>	
+	</body>
+</html>

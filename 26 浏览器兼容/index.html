@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>浏览器兼容</title>
+		<style type="text/css">
+			/*
+			 【1】，浏览器的五大内核：
+			      1,Trident: IE,360浏览器
+				  2,Gecko:Firefox
+				  3,Webkit:Safari,Chrome
+				  4,Presto:Opera,Presto
+				  5,Blink:Google
+			  【2】，解决浏览器兼容的办法：
+			      1,CSS Bug:CSS样式在各个浏览器上不能正确的显示，这种现象叫做CSS Bug
+				  2,CSS Hack:Hack是一种兼容各个浏览器上正确显示CSS 样式的方法
+				  3,Filter:过滤器
+			  【3】，IE6下面，常见的CSS Bug  和 Hack
+			      1,Bug    -->div中图片间隙,在IE6及更低版本浏览器上，div图片下方撑大三像素
+				    Hack   -->解决方法：给<img>中添加display:bolck;
+					
+				  2,Bug    -->双倍浮向/双倍边距，当IE6及其更低版本浏览器解析浮动元素的时候，会错误的把浮向边界加倍显示
+				    Hack   -->解决方法：给浮动元素添加display:inline;
+					
+				  3,Bug    -->默认高度，在IE6及更低版本的浏览器上，部分块元素拥有默认高度（低于18px）
+				    Hack1  -->给元素添加font-size:0; 
+					Hack2  -->给元素添加overflow:hidden;
+					
+				  4,Bug    -->表单元素行高不一致，即表单元素行高对其方式不一致
+				    Hack   -->给表单元素添加声明，float:left;
+					
+				  5,Bug    -->按钮元素默认大小不一，各个浏览器中按钮元素大小不一致
+				    Hack1  -->统一大小，用a标记模拟
+					Hack2  -->在input上写按钮的样式，同时去掉input的边框
+					Hack3  -->把图片作为按钮的背景图
+				
+				  6,Bug    -->百分比Bug，在IE6及其更低版本的浏览器中解析百分比时，按四舍五入方法计算，从而时50%+50%大于100%的情况发生
+				    Hack   -->给右边的浮动元素添加声明clear:right;
+					
+				  7,Bug    -->鼠标指针的Bug，cursor:hand;属性只有IE 浏览器识别；cursor:pointer;属性在IE6以上和其他浏览器能识别
+				    Hack   -->cursor:pointer;
+					
+				  6,Bug    -->透明属性;IE浏览器写法filter:alpha(opacity=value);取值范围1-100
+				    Hack   -->兼容其他浏览器的写法opacity:value;取值分为0-1
+				   【注】,opacity透明属性是可以继承给子元素
+				   
+			  【4】，过滤器（filter）
+			       1,下划线属性过滤器：_属性：属性值；
+				   -->只有在IE6及其以下的浏览器版本下可以继续解析
+				   
+				   2，!important过滤器：属性：属性值！important;
+				   -->所附加的声明，具有最高优先级；在IE6及其更低的版本下面不能解析，从而作为过滤IE6--的一种方法
+				   
+				   3，*属性过滤器：*属性：属性值；
+				   -->表示只能被IE7浏览器解析识别
+				
+   			 */
+		</style>
+		<script type="text/javascript"></script>
+	</head>
+	<body>
+	</body>
+</html>

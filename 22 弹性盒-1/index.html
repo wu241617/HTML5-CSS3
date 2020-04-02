@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>弹性盒</title>
+		<style type="text/css">
+			/* 
+			 【1】，弹性盒：是CSS3的一种新的布局模式，使得页面适应不同的屏幕大小和设备类型。(内部自适应)
+			       CSS3弹性盒 （Flexible或flexbox）
+			       -->由弹性容器（Flex-container）和 弹性子元素（Flex-item）组成；
+				   （Flex-container）通过display:flex;来设定
+			  【2】，flexbox属性集值：
+			       1，作用在父元素上面的属性：
+				      【1】display:flex|inline-flex;
+					  -->flex(将对象作为弹性伸缩盒显示) inline-flex（将对象作为内联块级弹性伸缩盒显示）
+					  
+				      【2】flex-direction:row|row-reverse|column|column-reverse;
+					  -->子元素的排列方式（设置伸缩盒主轴起点和终点位置）
+					  row默认主轴为横向，起点在左侧，终点在右侧(默认)
+					  row-reverse主轴横向反转，起点在右侧，终点在左侧
+					  column主轴纵向，起点在上侧，终点在下侧
+					  column-reverse主轴纵向反转，起点在下方，终点在上方
+					  
+				      【3】flex-wrap:nowrap|wrap|wrap-reverse;
+					  -->设置和检索伸缩盒里面的子元素超出父元素的时候是否换行
+					  nowrap子元素溢出父元素时不换行(默认)-->自动缩小每个子元素的宽高  确保能放下
+					  wrap当子元素溢出父元素时自动换行
+					  wrap-reverse反转wrap排列
+					  
+				      【4】justify-content:flex-start|flex-end|center|space-between|space-around;
+					  -->设置和检索伸缩盒子元素在主轴方向上的对齐方式
+					  flex-start 弹性盒子元素将向行起始位置对齐
+					  flex-end 弹性盒子元素将向行结束位置对齐
+					  center 弹性盒子元素将向行中间位置对齐
+					  space-between 弹性盒子元素会平均的分布在行里
+					  space-around 弹性盒子元素会平均的分布在行里，两端保留子元素与子元素之间间距大小的一半
+					  
+				      【5】align-items:flex-start|flex-end|center|baseline|stretch
+					   -->设置和检索伸缩盒子元素在侧轴方向上的对齐方式
+					   flex-start 弹性盒子元素将向列起始位置对齐
+					   flex-end 弹性盒子元素将向列结束位置对齐
+					   center 弹性盒子元素将向列中间位置对齐
+					   baseline 将文字对齐
+					   stretch 如果未设置宽高 将元素默认拉伸为父元素高度（默认）
+					   
+				      【6】align-content:flex-start|flex-end|center|space-between|space-around|stretch;
+					  -->设置各个行的对齐
+					  flex-start 各行向弹性盒容器的起始位置堆叠
+					  flex-end 各行向弹性盒容器的终点位置堆叠
+					  center  各行向弹性盒容器的中间位置堆叠
+					  space-between 各行在弹性盒容器中平均分布
+					  space-around 各行在弹性盒容器中平均分布，两端保留子元素与子元素之间间距大小的一半
+					  stretch 各行将会伸展已占用空余空间（默认）
+					  
+					  flex-flow
+				   2，作用在子元素上的属性：
+				      flex-grow
+				      flex-shrink
+				      flex-basis
+				      flex
+				      order
+				      align-self
+				   
+				   
+			 */
+			*{
+				margin:0;
+				padding:0;
+			}
+			.class1{
+				border:2px solid black;
+				display:flex;
+				margin:20px 0px;
+			}
+			.class2{
+				width:100px;
+				height:50px;
+				border:1px solid red;
+				text-align:center;
+				line-height:50px;
+				font-size:1.5em;
+			}
+			.class3{
+				border:2px solid black;
+				display:inline-flex;
+				margin:20px 0px;
+			}
+			.class4{
+				border:2px solid black;
+				display:flex;
+				flex-direction: row;
+				margin:20px 0px;
+			}
+			.class5{
+				border:2px solid black;
+				display:flex;
+				flex-direction: row-reverse;
+				margin:20px 0px;
+			}
+			.class6{
+				border:2px solid black;
+				display:flex;
+				flex-direction: column;
+				margin:20px 0px;
+			}
+			.class7{
+				border:2px solid black;
+				display:flex;
+				flex-direction: column-reverse;
+				margin:20px 0px;
+			}
+			.class8{
+				border:2px solid black;
+				display:flex;
+				flex-direction: row;
+				flex-wrap:nowrap;
+				margin:20px 0px;
+			}
+			.class9{
+				border:2px solid black;
+				display:flex;
+				flex-direction: row;
+				flex-wrap:wrap;
+				margin:20px 0px;
+			}
+			.class10{
+				border:2px solid black;
+				display:flex;
+				flex-direction: row;
+				flex-wrap:wrap-reverse;
+				margin:20px 0px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>1,display:flex;</h1>
+		<div class="class1">
+			<div class="class2">1</div>
+			<div class="class2">2</div>
+			<div class="class2">3</div>
+			<div class="class2">4</div>
+		</div>
+		<h1>2,display:inline-flex;</h1>
+		<div class="class3">
+			<div class="class2">1</div>
+			<div class="class2">2</div>
+			<div class="class2">3</div>
+			<div class="class2">4</div>
+		</div>
+		<h1>3,flex-direction:row;</h1>
+		<div class="class4">
+			<div class="class2">1</div>
+			<div class="class2">2</div>
+			<div class="class2">3</div>
+			<div class="class2">4</div>
+		</div>
+		<h1>4,flex-direction:row-reverse;</h1>
+		<div class="class5">
+			<div class="class2">1</div>
+			<div class="class2">2</div>
+			<div class="class2">3</div>
+			<div class="class2">4</div>
+		</div>
+		<h1>5,flex-direction:column;</h1>
+		<div class="class6">
+			<div class="class2">1</div>
+			<div class="class2">2</div>
+			<div class="class2">3</div>
+			<div class="class2">4</div>
+		</div>
+		<h1>6,flex-direction:column-reverse;</h1>
+		<div class="class7">
+			<div class="class2">1</div>
+			<div class="class2">2</div>
+			<div class="class2">3</div>
+			<div class="class2">4</div>
+		</div>
+		<h1>7,flex-wrap:nowrap;</h1>
+		<div class="class8">
+			<div class="class2">1</div>
+			<div class="class2">2</div>
+			<div class="class2">3</div>
+			<div class="class2">4</div>
+			<div class="class2">5</div>
+			<div class="class2">6</div>
+			<div class="class2">7</div>
+			<div class="class2">8</div>
+		</div>
+		<h1>8,flex-wrap:wrap;</h1>
+		<div class="class9">
+			<div class="class2">1</div>
+			<div class="class2">2</div>
+			<div class="class2">3</div>
+			<div class="class2">4</div>
+			<div class="class2">5</div>
+			<div class="class2">6</div>
+			<div class="class2">7</div>
+			<div class="class2">8</div>
+		</div>
+		<h1>9,flex-wrap:wrap-reverse;</h1>
+		<div class="class10">
+			<div class="class2">1</div>
+			<div class="class2">2</div>
+			<div class="class2">3</div>
+			<div class="class2">4</div>
+			<div class="class2">5</div>
+			<div class="class2">6</div>
+			<div class="class2">7</div>
+			<div class="class2">8</div>
+		</div>
+	</body>
+</html>

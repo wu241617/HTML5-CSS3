@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>移动端布局-页面等比例缩放自适应</title>
+		<style type="text/css">
+			/*
+			 移动端布局：
+			 【1】百分比布局（弹性），布局的原理及应用
+			  比例缩放上存在一些问题
+			 
+			 【2】rem等比缩放，布局的原理及应用
+			  rem是相对于根元素字体大小的单位；
+			  rem能等比例适配所有屏幕
+			  rem通过根元素来适配，网页中的根元素为html  通过对html大小的设定，来确定rem的大小值
+			     
+			  
+			 【3】vw 是相对长度单位，相对于浏览器窗口的宽度，浏览器窗口宽度被均分为100个单位的vw
+			  当浏览器窗口宽度为320px时，1vw = 3.2px
+			  p {
+			      font-size: 5vw;   /* 5 × 3.2px = 16px 
+				}		 
+			 */
+			@media  screen and (min-width:1200px){
+				html{
+					font-size:22px;
+				}
+			}
+			@media  screen and (min-width:800px) and (max-width:1200px){
+				html{
+					font-size:16px;
+				}
+			}
+			@media  screen and (max-width:800px){
+				html{
+					font-size:12px;
+				}
+			}
+			input{
+				width:3rem;
+				height:2rem;
+				background-color:darkblue;
+				color:white;
+				border:none;
+			}
+			.box{
+				width:10rem;
+				height:5rem;
+				margin-top:5rem;
+				border:0.2rem solid red;
+				font-size:0.8rem;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="submit" value="提交">
+		<div class="box">武汉纺织大学数学与计算机学院</div>
+	     <h3> 移动端布局：</h3>
+		【1】百分比布局（弹性），布局的原理及应用比例缩放上存在一些问题<br>
+		  <hr>
+		【2】rem等比缩放，布局的原理及应用
+		 rem是相对于根元素字体大小的单位；
+		 rem能等比例适配所有屏幕
+		 rem通过根元素来适配，网页中的根元素为html  通过对html大小的设定，来确定rem的大小值<br>
+		    <hr>
+		【3】vw 是相对长度单位，相对于浏览器窗口的宽度，浏览器窗口宽度被均分为100个单位的vw
+		 当浏览器窗口宽度为320px时，1vw = 3.2px 
+		 <hr><br>
+	</body>
+</html>

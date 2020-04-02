@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>媒体查询</title>
+		<style type="text/css">
+			/* 
+			【1】媒体查询：可以让我们根据设备显示器的特性《如视口宽度，屏幕比例，设备方向：横向或者纵向--》为其设定CSS样式
+			【2】语法一：@media mediatype and|not|only(media feature){
+				CSS code
+			}
+			
+			    语法二：<link type="text/css" media="mediatype and|not|only(media feature)" href="mystylesheet.css" >
+			
+			 */
+			@media screen and (min-width:1200px) {
+				body{
+					background-color:red;
+				}
+				h1{
+					font-size:72px;
+					font-family: 幼圆;
+				}
+				p{
+					font-size:48px;
+					font-family: 幼圆;
+				}
+			}
+			@media screen and (min-width:800px) and (max-width:1200px) {
+				body{
+					background-color:green;
+				}
+				h1{
+					font-size:48px;
+					font-family: 黑体;
+				}
+				p{
+					font-size:36px;
+					font-family: 黑体;
+				}
+			}
+			@media screen and (max-width:800px) {
+				body{
+					background-color:blue;
+				}
+				h1{
+					font-size:36px;
+					font-family: 宋体;
+				}
+				p{
+					font-size:24px;
+					font-family: 宋体;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<h1>武汉纺织大学数学与计算机学院</h1>
+		<p>物联网117401班</p>
+		<p>17045240131</p>
+		<p>wuhao</p>
+	</body>
+</html>

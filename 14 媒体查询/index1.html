@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>媒体查询</title>
+	</head>
+	<body>
+		<p>
+			media type(媒体类型)是css 2中的一个非常有用的属性，通过media type我们可以对不同的设备指定特定的样式，
+			从而实现更丰富的界面。media query(媒体查询)是对media type的一种增强，是CSS 3的重要内容之一。
+			随着移动互联网的发展，media query开始得到大家的重视。
+		</p>
+		<ol>
+			<li>
+				<b>media type</b><br>
+				all-->所有设备&nbsp;&nbsp;&nbsp;&nbsp;braille-->盲文&nbsp;&nbsp;&nbsp;&nbsp;embossed-->盲文打印&nbsp;&nbsp;&nbsp;&nbsp;
+				handheld-->手持设备&nbsp;&nbsp;&nbsp;&nbsp;print-->文档打印或打印预览模式&nbsp;&nbsp;&nbsp;&nbsp;projection-->项目演示，比如幻灯&nbsp;&nbsp;&nbsp;&nbsp;
+				screen-->彩色电脑屏幕&nbsp;&nbsp;&nbsp;&nbsp;speech-->演讲&nbsp;&nbsp;&nbsp;&nbsp;tty-->固定字母间距的网格的媒体，比如电传打字机
+				&nbsp;&nbsp;&nbsp;&nbsp;tv-->电视
+			</li>
+			<li>
+				<b>media type的几种使用方法</b><br>
+				可以通过几种方法来声明media type：<br>
+				
+				<pre>
+					方法一
+					&lt;link href="style.css" media="screen print" ...
+				</pre><br>
+				
+				<pre>
+					方法二
+					&lt;?xml-stylesheet media="screen" href="style.css"...
+				</pre><br>
+				
+				<pre>
+					方法三
+					@import url("style.css") screen;
+				</pre><br>
+				
+				<pre>
+					方法四
+					&lt;style media="screen"&gt;
+					@import url("style.css");
+					&il;/style&gt;
+				</pre><br>		
+				
+				<pre>
+					方法五
+					@media screen{
+					selector{rules}
+					}
+				</pre>
+			</li>
+			<li>
+				<b>media type的浏览器支持</b><br>
+				    1,IE5.5/6/7不支持在@import中使用媒体类型<br>
+				    2,Safari/firefox只支持all,screen,print三种类型(包括iphone) <br>
+				    3, Opera 完全支持 <br>
+				    4, Opera mini  支持handheld，未指定则使用screen <br>
+				    5, Windows Mobile系统中的IE支持handheld，其它支持不明… <br>
+
+			</li>
+			<li>
+				<b>media query</b><br>
+				可以将media query看成是media type+css属性判断。<br>
+				1,多个CSS属性判断可以用关键字and连接：其中media type可以省略，属性值也可以为空：<br>
+				2,针对多个媒体类型的CSS规则，可以用逗号来隔开：<br>
+			</li>
+			<li>
+				<b>media query支持的属性</b><br>
+				<ul>
+					<li>属性&nbsp;&nbsp;&nbsp;值	&nbsp;&nbsp;&nbsp;Min/Max&nbsp;&nbsp;&nbsp;描述</li>
+					<hr>
+					<li>color&nbsp;&nbsp;&nbsp;整数&nbsp;&nbsp;&nbsp;yes&nbsp;&nbsp;&nbsp;每种色彩的字节数</li>
+					<hr>
+					<li>color-index&nbsp;&nbsp;&nbsp;整数&nbsp;&nbsp;&nbsp;yes&nbsp;&nbsp;&nbsp;色彩表中的色彩数</li>
+					<hr>
+					<li>device-aspect-ratio&nbsp;&nbsp;&nbsp;整数/整数&nbsp;&nbsp;&nbsp;yes&nbsp;&nbsp;&nbsp;宽高比例</li>
+					<hr>
+					<li>device-height&nbsp;&nbsp;&nbsp;length&nbsp;&nbsp;&nbsp;yes&nbsp;&nbsp;&nbsp;设备屏幕的输出高度</li>
+					<hr>
+					<li>device-width&nbsp;&nbsp;&nbsp;length&nbsp;&nbsp;&nbsp;yes&nbsp;&nbsp;&nbsp;设备屏幕的输出宽度</li>
+					<hr>
+					<li>grid&nbsp;&nbsp;&nbsp;整数&nbsp;&nbsp;&nbsp;no&nbsp;&nbsp;&nbsp;是否是基于格栅的设备</li>
+					<hr>
+					<li>height&nbsp;&nbsp;&nbsp;length&nbsp;&nbsp;&nbsp;yes&nbsp;&nbsp;&nbsp;渲染界面的高度</li>
+					<hr>
+					<li>monochrome&nbsp;&nbsp;&nbsp;整数&nbsp;&nbsp;&nbsp;yes&nbsp;&nbsp;&nbsp;单色帧缓冲器中每像素字节</li>
+					<hr>
+					<li>resolution&nbsp;&nbsp;&nbsp;分辨率(“dpi/dpcm”)&nbsp;&nbsp;&nbsp;yes&nbsp;&nbsp;&nbsp;分辨率</li>
+					<hr>
+					<li>scan&nbsp;&nbsp;&nbsp;Progressive interlaced&nbsp;&nbsp;&nbsp;no&nbsp;&nbsp;&nbsp;tv媒体类型的扫描方式</li>
+					<hr>
+					<li>width&nbsp;&nbsp;&nbsp;length&nbsp;&nbsp;&nbsp;yes&nbsp;&nbsp;&nbsp;渲染界面的宽度</li>
+					<hr>
+					<li>orientation&nbsp;&nbsp;&nbsp;Portrait/landscape&nbsp;&nbsp;&nbsp;no&nbsp;&nbsp;&nbsp;横屏或竖屏</li>
+					<hr>
+				</ul>		
+			</li>
+			<li>
+				<b>浏览器扩展</b><br>
+				webkit是最早实现media query支持的浏览器内核之一，同时它也根据自己的需要搞了一些特有的扩展属性，最常用的有：<br>
+				1,transform-2d 	只用于支持使用 -webkit-transform实现2D变换的浏览器<br>
+				2,transform-3d 	只用于支持使用 -webkit-transform实现3D变换的浏览器<br>
+				3,transition 	只用于支持使用-webkit-transition实现变换效果的浏览器<br>
+				4,animation 	只用于支持使用-webkit-animation实现动画的浏览器<br>
+				详情请看这里：http://webkit.org/specs/MediaQueriesExtensions.html <br>
+				
+				firefox也提供一些自己的扩展，不过由于firefox浏览器的手机版现在还很弱，所以很少会用到
+				感兴趣的同学可以到https://developer.mozilla.org/En/CSS/Media_queries查阅。
+			</li>
+			<li>
+				<b>max与min</b><br>
+				用到的这两个关键词，他们是要配合支持它们的属性使用的，它们的意义与我们常用的max-width和minwidth等类似。<br>
+				1,height&nbsp;&nbsp;&nbsp;min-height&nbsp;&nbsp;&nbsp;max-height <br> 
+				2,device-width&nbsp;&nbsp;&nbsp;min-device-width&nbsp;&nbsp;&nbsp;max-device-width <br>
+				3,device-height&nbsp;&nbsp;&nbsp;min-device-height&nbsp;&nbsp;&nbsp;max-device-height <br>
+				4,aspect-ratio&nbsp;&nbsp;&nbsp;min-aspect-ratio&nbsp;&nbsp;&nbsp;max-aspect-ratio <br>
+				5,device-aspect-ratio&nbsp;&nbsp;&nbsp;min-device-aspect-ratio&nbsp;&nbsp;&nbsp;max-device-aspect-ratio <br>
+				6,color&nbsp;&nbsp;&nbsp;min-color&nbsp;&nbsp;&nbsp;max-color <br>
+				7,color-index&nbsp;&nbsp;&nbsp;min-color-index&nbsp;&nbsp;&nbsp;max-color-index <br>
+				8,Monochrome&nbsp;&nbsp;&nbsp;min-monochrome&nbsp;&nbsp;&nbsp;max-monochrome <br>
+				9,Resolution&nbsp;&nbsp;&nbsp;min-resolution&nbsp;&nbsp;&nbsp;max-resolution
+			</li>
+			<li>
+				<b>not/only</b><br>
+				媒体类型还支持 not和only关键字，它们可以用来更方便的定位某个媒体设备：<br>
+				not：排除某种制定的媒体类型@media not print and (color){} <br>
+				only：指定某种特定的媒体类型，可以用来排除不支持媒体查询的浏览器：@media only screen and (color){}
+			</li>
+			<li>
+				<b>media query的浏览器支持：</b><br>
+				    IE 9以下不支持<br>
+				    Firefox 3.5+(Gecko 1.9.1+)支持<br>
+				    Opera 9.5+完全支持<br>
+				    Opera mini 5支持<br>
+				    webkit 支持大部分属性(safari 3.0的内核版本是522，iPhone 1代的safari的内核版本是524，
+					webkit大概从这个时候开始支持media query，但是对部分属性比如projection支持不好)<br>
+				    iPhone OS 3.2之前的版本不支持orientation属性，iPad和iPhone 4支持该属性<br>
+				    iPhone Safari不支持orientation(iPhone 4支持)<br>
+
+			</li>
+		</ol>
+	</body>
+</html>

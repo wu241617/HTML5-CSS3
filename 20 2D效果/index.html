@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>2D效果</title>
+		<style type="text/css">
+			/*  
+			2D效果：
+			   1，CSS3过度:
+			   transition属性：
+			   
+			   transition-property:;   -->规定过度应用的CSS属性(多个的时候之间用逗号隔开，所有的时候用all)
+			   
+			   transition-duration:;   -->过度效果花费的时间
+			   
+			   transition-timing-function  -->规定过度效果的时间曲线，默认为ease 常用的：linear
+			   
+			   ease -->慢到快；linear -->匀速；ease-in -->慢速开始；ease-out -->慢速结束；easr-in-out -->慢速开始和结束
+			   cubic-bezier(n,n,n,n)
+			   
+			   transition-delay:;   -->规定过度效果何时开始
+			   
+			   2，2D变形
+			   transform属性：
+			   
+			   transform:rotate(num deg,num deg)/rotateX(xdeg)/rotateY(y deg);  
+			   -->旋转,取值用的是角度 deg表示它的单位,沿着X方向和沿着Y方向)
+			   
+			   transform:skew（x,y）/skewX(x)/skewY(y);  -->扭曲
+			   -->扭曲(沿着X方向和沿着Y方向) -->x,y取值为角度值，
+			   
+			   transform:scale(x,y)/scaleX(x)/scaleY(y);
+				-->缩放(沿着X方向和沿着Y方向) -->x,y取值为倍数值，大于1放大，小于1缩小
+				
+			   transform:translate(x,y)/translate(x)/translate(y);  -->移动(沿着X方向和沿着Y方向)
+			   
+			   transform:matrix; -->矩阵变形===matrix() 方法把所有 2D 转换方法组合在一起。
+			   
+			   transform-origin:left top;-->改变中心点的位置
+			
+			*/
+			
+			
+			.box{
+				width:200px;
+				height:150px;
+				background-color:cadetblue;
+				transition-property: width,height,background-color;
+				transition-duration: 1.5s;
+				transition-timing-function: linear;
+				transition-delay: 0.5s;
+				transform:matrix(0.866,0.5,-0.5,0.866,0,0);
+				-ms-transform:matrix(0.866,0.5,-0.5,0.866,0,0);		/* IE 9 */
+				-moz-transform:matrix(0.866,0.5,-0.5,0.866,0,0);	/* Firefox */
+				-webkit-transform:matrix(0.866,0.5,-0.5,0.866,0,0);	/* Safari and Chrome */
+				-o-transform:matrix(0.866,0.5,-0.5,0.866,0,0);		/* Opera */
+			}
+			.box:hover{
+				width:400px;
+				height:300px;
+				background-color:firebrick;
+			}
+			.box1{
+				width:200px;
+				height:200px;
+				background-color:red;
+				margin:100px auto;
+				transform:rotate(30deg);
+			}
+			.box2{
+				width:300px;
+				height:250px;
+				margin:50px auto;
+				background-color:green;
+				transform:translate(100px,50px);
+			}
+			.box3{
+				width:100px;
+				height:80px;
+				margin:100px auto;
+				background-color:blue;
+				transition:all 1.5s;
+				transform-origin:left top;
+			}
+			.box3:hover{
+				width:200px;
+				height:160px;
+				background-color:firebrick;
+				/* transform:rotate(30deg); */
+				transform:skewX(30deg);
+			}
+		</style>
+		<script type="text/javascript"></script>
+	</head>
+	<body>
+		<div class="box"></div>
+		<div class="box1"></div>
+		<div class="box2"></div>
+		<div class="box3"></div>
+	</body>
+</html>

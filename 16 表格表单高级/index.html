@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>表格表单高级</title>
+		<style type="text/css">
+			/*
+			 【1】，表单高级属性：
+			  1,表单字段集<fieldset> <fieldset>
+			  相当于一个方框，可以把表单元素进行分组
+			  
+			  2,字段级标题<legend> <legend>
+			  字段集的标题,legend元素必须是fieldset元素中的第一个元素
+			  
+			  3,提示信息标签<label for="绑定控件ID名"> <label>
+			  可以扩大点击选择范围
+			 
+			 */
+			*{
+				margin:0;
+				padding:0;
+			}
+			p{
+				padding-bottom:20px;
+			}
+			form{
+				width:600px;
+				height:600px;
+				margin:50px auto;
+				padding: 20px;
+				border:2px solid red;
+			}
+			.ft{
+				border:1px solid blue;
+				padding:10px;
+			}
+			span{
+				min-width:100px;
+				height:30px;
+				text-align:center;
+				line-height:30px;
+				padding: 0 20px;
+			}
+			.right{
+				color:green;
+			}
+			.error{
+				color:red;
+			}
+		</style>
+		<script type="text/javascript" src="jquery-3.4.1.js"></script>
+		<script type="text/javascript"></script>
+	</head>
+	<body>
+		<form name="f1" method="post" action="">
+			
+			<fieldset class="ft" style="margin-bottom:30px;">
+				<legend class="ft">用户登录</legend>
+			<p>姓名：<input type="text" id="name"><span id="name1"></span></p>
+			
+			<p>密码：<input type="password" id="password"><span id="password1"></span></p>
+			
+			<p><input type="submit" value="提交">
+			<input type="reset" value="重置"></p>
+			</fieldset>
+			
+			<fieldset class="ft">
+				<legend class="ft">用户注册</legend>
+			<p>性别：<label for="male">男</label><input type="radio" name="sex" id="male">
+			<label for="female"></label>女<input type="radio" name="sex" id="female"><span id="sex1"></span></p>
+			
+			<p>爱好：睡觉<input type="checkbox" name="like">吃饭<input type="checkbox" name="like">
+			打游戏<input type="checkbox" name="like">打篮球<input type="checkbox" name="like"><span id="habby1"></span></p>
+			
+			<p>出生年月：
+			<select name="year">
+				    <option value="">请选择年份:</option>
+					<option value="1995">1995</option>
+				    <option value="1996">1996</option>
+					<option value="1997">1997</option>
+					<option value="1998">1998</option>
+			</select>年
+			<select name="month">
+				    <option value="">请选择月份:</option>
+					<option value="1">1</option>
+				    <option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					
+			</select>月<span id="borth"></span></p>
+			
+			<p>个人简介：<textarea  cols="30" rows="10"></textarea></p>
+			</fieldset >
+		</form>
+		
+		<script type="text/javascript">
+			//jQuery进行表单验证
+			$("#name").blur(function(){
+				if($(this).val() === ""){
+					$("#name1").html("* 请填写姓名:").addClass("error");
+				}else{
+					$("#name1").html("* 姓名填写成功！").addClass("right");
+				}
+			})
+			
+			$("#password").blur(function(){
+				if($(this).val() === ""){
+					$("#password1").html("* 请填写密码:").addClass("error");
+				}else if($(this).val().length > 16 || $(this).val().length <8 ){
+					$("#password1").html("* 密码为8-16位！").addClass("error");
+				}else{
+					$("#password1").html("* 密码输入正确！").addClass("right");
+				}
+			})
+			
+			//单选框
+			$(":radio").change(function(){
+				if($(":radio:checked").length !== 0){
+					$("#sex1").html("* 性别已选择！").addClass("right");
+				}else{
+					$("#dex1").html("请选择性别:").addClass("error");
+				}
+			})
+			
+			//多选框
+			$(":checkbox").change(function(){
+				if($(":checkbox:checked").length !== 0){
+					$("#habby1").html("* 爱好已选择！").addClass("right");
+				}else{
+					$("#habby1").html("* 请选择爱好！").addClass("error");
+				}
+			})
+			
+			//下拉框
+			$("select").change(function(){
+				if($("select:first").val() === "" || $("select:last").val() === ""){
+					$("#borth").html("* 请选择出生日期:").addClass("error");
+				}else{
+					$("#borth").html("* 出生日期已选择！").css("color","green");
+				}
+			})
+			
+			$(":submit").click(function(){
+			    alert("您确定提交！");
+			})
+		</script>
+	</body>
+</html>

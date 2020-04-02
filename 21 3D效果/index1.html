@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>3D实例-立方体</title>
+		<style type="text/css">
+			*{
+				margin:0;
+				padding:0;
+			}
+			.box{
+				width:1500px;
+				height:800px;
+				border:5px solid black;
+				margin:100px auto;
+				background-color:rgba(200,220,200,.5);
+				position: relative;
+				perspective: 1000px;
+				/* perspective-origin: left top; */
+			}
+			.box ul{
+				width:400px;
+				height:400px;
+				/* border:1px solid black; */
+				position: absolute;
+				left:0;
+				top:0;
+				right:0;
+				bottom:0;
+				margin:auto;
+				transform-style: preserve-3d;
+				transition:all 5s;
+			}
+			.box ul:hover{
+				transform:rotateX(360deg) rotateY(360deg);
+			}
+			ul li{
+				list-style:none;
+				width:400px;
+				height:400px;
+				text-align:center;
+				line-height:400px;
+				font-size:3em;
+				position: absolute;
+			}
+			li:nth-child(1){
+				background-color:rgba(255,0,0,.3);
+				transform:translateY(-200px) rotateX(90deg);
+			}
+			li:nth-child(2){
+				background-color:rgba(255,255,0,.3);
+				transform:translateY(200px) rotateX(-90deg);
+			}
+			li:nth-child(3){
+				background-color:rgba(0,255,255,.3);
+				transform:translateX(-200px) rotateY(-90deg);
+			}
+			li:nth-child(4){
+				background-color:rgba(0,255,0,.3);
+				transform:translateX(200px) rotateY(90deg);
+			}
+			li:nth-child(5){
+				background-color:rgba(255,0,255,.3);
+				transform:translateZ(200px);
+			}
+			li:nth-child(6){
+				background-color:rgba(0,0,255,.3);
+				transform:translateZ(-200px) rotateY(180deg);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<ul>
+				<li>上面</li>
+				<li>下面</li>
+				<li>左面</li>
+				<li>右面</li>
+				<li>前面</li>
+				<li>后面</li>
+			</ul>
+		</div>
+	</body>
+</html>

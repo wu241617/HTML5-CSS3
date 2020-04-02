@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>响应式布局</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="HandheldFriendly" content="true">
+		<!-- (min-width:1200px)没有封号 -->
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			body{
+				font-size:2rem;
+				font-weight: bold;
+				font-family: 幼圆;
+				color:white;
+			}
+			.header{
+				height:5rem;
+				text-align:center;
+				background-color:red;
+			}
+			.left,.main,.right{
+				height:20rem;
+				width:20%;
+				text-align:center;
+				background-color:green;
+				float:left;
+			}
+			.main{
+				width:60%;
+				background-color:blue;
+			}
+			.right{
+				width:20%;
+				background-color:darkmagenta;
+			}
+			.footer{
+				clear:both;
+				height:5rem;
+				text-align:center;
+				background-color:black;
+			}
+			
+			@media screen and (min-width:1200px
+
+			) {
+				html {
+					font-size: 20px;
+				}
+			}
+
+			@media screen and (min-width:800px
+			) and (max-width:1200px
+
+			) {
+				html {
+					font-size: 16px;
+				}
+				.left{
+					width:30%;
+				}
+				.main{
+					width:70%;
+				}
+				.right{
+					display:block;
+					clear:both;
+					height:10rem;
+					width:100%;
+				}
+			}
+
+			@media screen and (max-width:800px
+
+			) {
+				html {
+					font-size: 12px;
+				}
+				.left,.right{
+					clear:both;
+					width:100%;
+					height:5rem;
+				}
+				.main{
+					clear:both;
+					width:100%;
+					height:10rem;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="header">111</div>
+		<div class="body">
+			<div class="left">222</div>
+			<div class="main">333</div>
+			<div class="right">444</div>
+		</div>
+		<div class="footer">555</div>
+	</body>
+</html>

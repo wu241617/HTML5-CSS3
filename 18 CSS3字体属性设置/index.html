@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>CSS3字体属性设置和图片字体的运用</title>
+		<link rel="stylesheet" href="demo.css" type="text/css">
+		<link rel="stylesheet" href="iconfont.css" type="text/css">
+		<style type="text/css">
+			/* 
+			【1】,服务器端字体：把字体文件一起上传到服务器端，用户使用的时候，调用这个字体文件在缓存区中
+			   @font-face{
+				font-family:WebFont;//WebFont为自己定义的字体的名称
+				src:url("font/....")format("opentype");//src字体在服务器上加载的字体文件路径;
+		       【注】format为字体文件的格式， 字体文件格式有Opentype 和 Truetype  ,其值分别为opentype 和 truetype  ,文件扩展名  .oty 和 .tty
+			  }
+			  div {font-family:WebFont;}
+			  ------------------------------------------------------------------------------------------------------------
+			  ----能够在 @font-face 规则中定义的所有字体描述符：
+			    描述符 	值 	描述
+			    1,font-family 	name 	必需。规定字体的名称。
+			    2,src 	URL 	必需。定义字体文件的 URL。
+			    3,font-stretch 	
+			        normal   condensed   ultra-condense    extra-condensed   semi-condensed
+			        expanded   semi-expanded   extra-expanded  ultra-expanded
+			    	可选。定义如何拉伸字体。默认是 "normal"。
+			    4,font-style 	
+			      ormal    italic  oblique
+			    	可选。定义字体的样式。默认是 "normal"。
+			    5,font-weight 	
+			        normal bold 100 200 300 400 500 600 700 800 900
+			  	  可选。定义字体的粗细。默认是 "normal"。
+			    6,unicode-range 	unicode-range 	可选。定义字体支持的 UNICODE 字符范围。默认是 "U+0-10FFFF"。
+			  -----------------------------------------------------------------------------------------------------------
+			 【2】，iconfont:图标字体  -->优点：体积小，维护性好（可以任意拉伸，改变颜色等）
+			   【注】阿里巴巴矢量图标库（可以下载相关代码）
+			 */
+			@font-face{
+				font-family:my;
+				src:url("....")format("opentype");
+			}
+			body{
+				font-family:my;
+			}
+			ul li{
+				list-style:none;
+				cursor:pointer;
+			}
+			.iconfont{
+				font-size:40px;
+			}
+			.iconfont:hover{
+				font-size:89px;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>
+			<i class="iconfont">&#xe603</i>
+			<p>第一个图标</p>
+			</li>
+			<li>
+			<i class="iconfont">&#xe604</i>
+			<p>第二个图标</p>
+			</li>
+			<li>
+			<i class="iconfont">&#xe605</i>
+			<p>第三个图标</p>
+			</li>
+			<li>
+			<i class="iconfont">&#xe606</i>
+			<p>第四个图标</p>
+			</li>
+			<li>
+			<i class="iconfont">&#xe607</i>
+			<p>第五个图标</p>
+			</li>
+			<li>
+			<i class="iconfont">&#xe608</i>
+			<p>第六个图标</p>
+			</li>
+		</ul>
+	</body>
+</html>

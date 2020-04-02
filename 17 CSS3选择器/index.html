@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>CSS3选择器和新增属性</title>
+		<style type="text/css">
+			/* 
+			【1】,CSS3选择器：
+			1，属性选择器：E为元素标签  [arr]为属性  "val"为属性值  ~="val"为指定词汇 {...}改变的样式
+			     1>,E[arr]{...}  -->E[arr]用于选取带有指定属性的元素
+			     2>,E[arr="val"]{...} -->E[arr="val"]用于选取带有指定属性和值的元素
+			     3>,E[arr~="val"]{...}-->E[arr~="val"]用于选取属性值中包含指定词汇的元素
+			     4>,E[arr|="val"]{...}-->E[arr|="val"]用于选择有指定值开始的属性值，该值必须是整个单词  a-wuaho
+			     5>,E[arr^="val"]{...}-->E[arr^="val"]匹配属性值中，以指定值开头的每个元素  awuhao
+			     6>,E[arr$="val"]{...}-->E[arr$="val"]匹配属性值中，以指定值结尾的每个元素  
+			     7>,E[arr*="val"]{...}-->E[arr*="val"]匹配属性值中，包含指定值的每个元素 
+			2，伪类选择器
+			     1>:first-child  -->单独指定第一个元素的样式
+				 2>:last-child   -->单独指定最后一个元素的样式
+				 3>:nth-child    -->指定序号的子元素使用样式
+				 4>:nth-last-child   -->指定序号的子元素使用样式
+			 */
+			img[title]{
+				border:3px solid red;
+			}
+			img[alt]{
+				border:3px solid green;
+			}
+			input[type="text"]{
+				width:400px;
+				height:40px;
+				border:2px solid green;
+			}
+			input[type="submit"]{
+				width:200px;
+				height:20px;
+				border:1px solid red;
+			}
+		</style>
+		<script type="text/javascript"></script>
+	</head>
+	<body>
+		<img src="img/index-4.jpg" alt="image">
+		<img src="img/index-5.jpg" title="view">
+		<form action="">
+			<input type="text">
+			<input type="submit">
+		</form>
+	
+	</body>
+</html>

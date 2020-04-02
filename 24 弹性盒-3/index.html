@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			/* 
+			【4】flex复合属性：flex:none|[flex-grow] [flex-shrink] [flex-basis];
+			flex:0 1 auto;-->默认值：
+			flex:1;<=>flex:1 1 0;
+			flex:auto;<=>flex:1 1 auto;
+			flex:none;<=>flex:0 0 auto;
+			
+			【5】order:<integer>;
+	         -->设置和检索弹性盒模型对象的子元素出现的顺序
+			 用整数值来定义排列顺序，数值小的排在前面，可以为负数
+	
+			【6】align-self:auto|flex-statr|flex-end|center|baseline|stretch;
+			-->用来定义弹性元素自身在侧轴方向上的对齐方式
+			auto;-->计算值为父元素align-item的值，没有父元素则其值为stretch
+			flex-start 弹性盒子元素将向列起始位置对齐
+			flex-end 弹性盒子元素将向列结束位置对齐
+			center 弹性盒子元素将向列中间位置对齐
+			baseline 将文字对齐
+			stretch 如果未设置宽高 将元素默认拉伸为父元素高度（默认）
+			 
+			 */
+			*{
+				margin:0;
+				padding:0;
+			}
+			html,body{
+				height:100%;
+			}
+			body{
+				display:flex;
+			}
+			.left{
+				width:200px;
+				background-color:red;
+			}
+			.center{
+				overflow: hidden;
+				background-color:green;
+				flex:1;
+			}
+			.right{
+				width:200px;
+				background-color:blue;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="left">左面</div>
+		<div class="center">中间</div>
+		<div class="right">右面</div>
+	</body>
+</html>

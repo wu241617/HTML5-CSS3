@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			/*
+			 【1】，弹性盒：是CSS3的一种新的布局模式，使得页面适应不同的屏幕大小和设备类型。(内部自适应)
+			       CSS3弹性盒 （Flexible或flexbox）
+			       -->由弹性容器（Flex-container）和 弹性子元素（Flex-item）组成；
+				   （Flex-container）通过display:flex;来设定
+			  【2】，flexbox属性集值：
+			       <---弹性盒-1中--->
+				   
+				   2，作用在子元素上的属性：
+				      【1】flex-grow：<number>(default 0)；
+					  -->设置和检索弹性盒的扩展比例,具体数值按比例分配剩余空间
+					  <number>:用数值来定义扩展比例，不允许负数
+					  flex-grow的默认值为0，不会具有分配剩余空间的权力
+					  
+				      【2】flex-shrink:<number>(default 1)；
+					  -->设置和检索弹性盒的缩放比例,具体数值按比例缩放超出空间空间
+					  <number>:用数值来定义缩放比例，不允许负数
+					  flex-grow的默认值为1，不会具有缩放超出空间的权力
+					  
+				      【3】flex-basis:<length>|auto(default auto);
+					  -->设置和检索弹性盒伸缩基准值
+					  <length>：用长度值来定义宽度，不允许负值
+					  auto:无特定宽度值。取决于其他属性值(默认)
+					  <percentage>:用百分比来定义宽度，不允许负值
+					  
+					  【4】复合属性：flex:none|[flex-grow] [flex-shrink] [flex-basis];
+					  flex:0 1 auto;-->默认值：
+					  flex:1;<=>flex:1 1 0;
+					  flex:auto;<=>flex:1 1 auto;
+					  flex:none;<=>flex:0 0 auto;
+					  
+				      flex
+				      order
+				      align-self
+				   
+				   
+			 */
+			*{
+				margin:0;
+				padding:0;
+			}
+			/* box所要扩展的长度：500-150-250=100px
+			   box-1所要扩展的长度：100*1/（1+3）=（num1）；
+			   box-2所要扩展的长度：100*3/（1+3）=（num2）；
+			   box-1实际长度：150+num1;
+			   box-2实际长度：250+um2;
+			 */
+			.box{
+				width:500px;
+				background-color:green;
+				display:flex;
+			}
+			.box1{
+				width:150px;
+				background-color:red;
+				flex-grow:1;
+			}
+			.box2{
+				width:250px;
+				background-color:blue;
+				flex-grow:3;
+			}
+			
+			/* box-0所要缩放的长度：150+250-300=100px
+			   加权总和：150*3+250*1=700px;
+			   box-1所要缩减的长度：150*3/700*100=（num1）；
+			   box-2所要缩减的长度：250*1/700*100=（num2）；
+			   box-1实际长度：150-num1;
+			   box-2实际长度：250-num2;
+			 */
+			.box-0{
+				margin-top:50px;
+				width:300px;
+				background-color:green;
+				height:50px;
+				display:flex; 
+			}
+			.box-1{
+				width:150px;
+				background-color:red;
+				flex-shrink:3;
+				height:20px;
+			}
+			.box-2{
+				width:250px;
+				background-color:blue;
+				flex-shrink:1;
+				height:20px;
+			}
+			ul{
+				margin-top:50px;
+				background-color:darkgray;
+				width:600px;
+				height:100px;
+				display:flex;
+			}
+			ul li{
+				list-style:none;
+				width:100px;
+				height:50px;
+				text-align:center;
+				color:black;
+				font-size:1.5em;
+				font-weight: bolder;
+				line-height: 50px;
+			}
+			/* 1:1:6:1:1进行缩减 */
+			li:nth-child(1){
+				background:darkblue;
+			}
+		    li:nth-child(2){
+				background:darkcyan;
+			}
+			li:nth-child(3){
+				background:darkgoldenrod;
+				flex-basis: 600px;/* 改变宽度 */
+			}
+			li:nth-child(4){
+				background:darkgreen;
+			}
+			li:nth-child(5){
+				background:darkorange;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="box1">这是第一个段落</div>
+			<div class="box2">这是第二个段落</div>
+		</div>
+		<div class="box-0">
+			<div class="box-1">这是第一个段落</div>
+			<div class="box-2">这是第二个段落</div>
+		</div>
+		<ul>
+			<li>A</li>
+			<li>B</li>
+			<li>C</li>
+			<li>D</li>
+			<li>E</li>
+		</ul>
+	</body>
+</html>

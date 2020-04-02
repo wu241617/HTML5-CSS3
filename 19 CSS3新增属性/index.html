@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>CSS3新增属性</title>
+		<style type="text/css">
+			/* 
+			CSS3新增属性
+			================================================================================================================
+			【1】，背景属性
+			    1，background-clip  -->背景裁切方式
+				background-clip:border-box;  -->背景被裁到边框盒（默认）
+				background-clip:padding-box; -->背景被裁到内边距框
+				background-clip:content-box; -->背景被裁到内容框
+				========================================================
+				2,background-origin  -->定义背景图片的起始位置
+				background-origin:border-box;  -->背景起始位置在边框盒
+				background-origin:padding-box; -->背景起始位置在内边距框（默认）
+				background-origin:content-box; -->背景起始位置在内容框
+				=========================================================
+				3,background-size  -->背景图片的大小
+				background-size:length; -->设置背景图片的宽度和高度  ，第一个值为宽度，第二个值为高度；background-size:50px 50px;
+				background-size:percentage; -->以父元素的百分比来设置图片的宽度和高度；background-size:50% 50%;
+				background-size:cover; -->背景图片扩展(把图片以容器最宽的一条边，进行等比例缩放，超出不显示)
+				background-size:contain; -->把图像扩展到最大尺寸（把图片以容器最短的那条边，进行等比例缩放，铺不满不管）
+			 【注】，CSS3提供了  在一个容器中可以插入多张背景图 background-image:url(...),url(...);
+			======================================================================================================================
+			【2】，边框属性
+			    1,border-radius  -->边框圆角
+				border-radius：15px;
+				border-radius:18px 39px;-->成对角线出现
+				border-radius:10px 3px 5px 45px;
+				============================================
+				2，用图片来做边框
+				border-image:url(....)A B C D/border-image-width border-image-repeat;
+				url(....)  -->图片的路径
+				A B C D  -->为浏览器自动把图片分割成九宫格的时侯，输入的上 右 下 左边距的值，没有单位
+				border-image-width -->边框的宽度
+				border-image-repeat -->边框展开方式(1,repeat-->平铺； 2,round -->循环； 3,stretch-->拉伸)
+			========================================================================================================
+			【3】，盒阴影 -->让盒在显示时产生阴影效果
+			    box-shadow:h-shadow v-shadow blur spread color inset;
+				h-shadow  -->水平阴影的位置（必写）
+				v-shadow  -->垂直阴影的位置（必写）
+				blur   -->模糊距离（可选）
+				spread -->阴影的尺寸（可选）
+				color -->阴影的颜色（可选）
+				inset -->将外部阴影（outset）改为内部阴影 
+			=====================================================================================================================
+			【4】，文本效果
+			   1,text-shadow 可向文本应用阴影。规定水平阴影、垂直阴影、模糊距离，以及阴影的颜色：
+			   text-shadow: 5px 5px 5px #FF0000;
+			   
+			   2,word-wrap 属性允许您允许文本强制文本进行换行 - 即使这意味着会对单词进行拆分：
+			   
+			   hanging-punctuation-->规定标点字符是否位于线框之外。 	
+			   punctuation-trim-->规定是否对标点字符进行修剪。 	
+			   text-align-last-->设置如何对齐最后一行或紧挨着强制换行符之前的行。 	
+			   text-emphasis-->向元素的文本应用重点标记以及重点标记的前景色。 	
+			   text-justify-->规定当 text-align 设置为 "justify" 时所使用的对齐方法。 	
+			   text-outline-->规定文本的轮廓。 	
+			   text-overflow-->规定当文本溢出包含元素时发生的事情。 	
+			   text-shadow-->向文本添加阴影。 	
+			   text-wrap-->规定文本的换行规则。 	
+			   word-break-->规定非中日韩文本的换行规则。 	
+			   word-wrap-->允许对长的不可分割的单词进行分割并换行到下一行。
+			==========================================================================================================================
+			【5】,服务器端字体：把字体文件一起上传到服务器端，用户使用的时候，调用这个字体文件在缓存区中
+			   @font-face{
+				font-family:WebFont;//WebFont为自己定义的字体的名称
+				src:url("font/....")format("opentype");//src字体在服务器上加载的字体文件路径;
+			   【注】format为字体文件的格式， 字体文件格式有Opentype 和 Truetype  ,其值分别为opentype 和 truetype  ,文件扩展名  .oty 和 .tty
+			  }
+			  div {font-family:WebFont;}
+			----能够在 @font-face 规则中定义的所有字体描述符：
+			  描述符 	值 	描述
+			  1,font-family 	name 	必需。规定字体的名称。
+			  2,src 	URL 	必需。定义字体文件的 URL。
+			  3,font-stretch 	
+			      normal   condensed   ultra-condense    extra-condensed   semi-condensed
+			      expanded   semi-expanded   extra-expanded  ultra-expanded
+			  	可选。定义如何拉伸字体。默认是 "normal"。
+			  4,font-style 	
+			    ormal    italic  oblique
+			  	可选。定义字体的样式。默认是 "normal"。
+			  5,font-weight 	
+			      normal bold 100 200 300 400 500 600 700 800 900
+				  可选。定义字体的粗细。默认是 "normal"。
+			  6,unicode-range 	unicode-range 	可选。定义字体支持的 UNICODE 字符范围。默认是 "U+0-10FFFF"。
+			 */
+			.box {
+				width: 800px;
+				height: 500px;
+				margin: 0 auto;
+				padding: 30px;
+				border: 20px dashed blue;
+				background-image: url(img/6.jpg);
+				/* background-clip:border-box;
+				background-clip:padding-box; */
+				background-clip: content-box;
+				background-origin: content-box;
+				background-size: 500px 300px;
+			}
+
+			.box1 {
+				width: 300px;
+				height: 200px;
+				border-radius: 15px;
+				border: 3px solid black;
+				background-color: yellow;
+				margin-bottom: 50px;
+			}
+
+			.box2 {
+				width: 600px;
+				height: 300px;
+				-webkit-border-image: url(img/1.jpg) 80/20px stretch;
+				margin-bottom: 50px;
+			}
+
+			.box3 {
+				width: 800px;
+				height: 500px;
+				background-color: white;
+				margin-bottom: 50px;
+			}
+
+			.box3:hover {
+				box-shadow: 0px 0px 20px 20px darkolivegreen inset;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+		<div class="box1"></div>
+		<div class="box2"></div>
+		<div class="box3">
+			<h1 style="text-shadow:5px 5px 5px #FF0000;text-align:center;">Hello World</h1>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>CSS3动画</title>
+		<style type="text/css">
+			/* 
+			 CSS3动画：
+			 ==============================================================================================================
+			  1，过度动画：
+			  
+			  transition属性：
+			  
+			  transition-property:;   -->规定过度应用的CSS属性(多个的时候之间用逗号隔开，所有的时候用all)
+			  
+			  transition-duration:;   -->过度效果花费的时间
+			  
+			  transition-timing-function  -->规定过度效果的时间曲线，默认为ease 常用的：linear
+			  
+			  ease -->慢到快；linear -->匀速；ease-in -->慢速开始；ease-out -->慢速结束；easr-in-out -->慢速开始和结束
+			  cubic-bezier(n,n,n,n)
+			  
+			  transition-delay:;   -->规定过度效果何时开始
+			  ============================================================================================================
+			  2，关键帧动画：
+			  语法格式：
+			  @keyframes animationname{
+				  keyframes-selector{CSS-style};
+			  }
+			  keyframes-selector可以是from 和 to /或者是 0% 25% 50% ... 100%;
+			  
+			  动画属性：
+			  animation  -->属性简写
+			  animation-name -->规定@keyframes的动画名
+			  animation-duration  -->规定动画完成一个周期所需要的时间
+			  animation-timing-function  -->规定3D元素透视效果
+			  animation-delay  -->规定动画从何时开始
+			  animation-iteration-count  -->规定动画被播放的次数，默认为1 （infinite）为无限次播放
+			  animation-direction   -->normal:默认值，动画正常播放; alternate:动画轮流反向播放
+			  animation-play-state  -->paused: 动画暂停； running:动画正在播放； (和javascript一起配合使用)
+			  animation-fill-mode 	规定对象动画时间之外的状态。
+			 */
+			*{
+				margin:0;
+				padding:0;
+			}
+			.box{
+				width:200px;
+				height:200px;
+				border:2px solid black;
+				margin:50px 0px;
+				background-color:blue;
+				transition:all 2s;
+			}
+			.box:hover{
+				transform:translateX(500px);
+			}
+			.box1{
+				width:200px;
+				height:200px;
+				border:2px solid black;
+				margin:50px 0px;
+				background-color:red;
+				position: relative;
+				/*animation: myfirst 5s linear 2s infinite alternate;*/
+		        -moz-animation: aa 2s linear 2s infinite alternate;
+				-webkit-animation: aa 2s linear 2s infinite alternate;
+				-o-animation: aa 2s linear 2s infinite alternate;
+				animation: aa 2s linear 2s infinite alternate;
+			}
+			
+			@-moz-keyframes aa{
+				from{left:0;top:0;}
+				to{left:500px;top:0;}
+			}
+			@-webkit-keyframes aa{
+				from{left:0;top:0;}
+				to{left:500px;top:0;}
+			}
+			@-o-keyframes aa{
+				from{left:0;top:0;}
+				to{left:500px;top:0;}
+			}
+			@keyframes aa{
+				from{left:0;top:0;}
+				to{left:500px;top:0;}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+		<div class="box1"></div>
+	</body>
+</html>
